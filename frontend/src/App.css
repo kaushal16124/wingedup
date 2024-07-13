@@ -1,0 +1,354 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.navbar {
+  z-index: 100;
+}
+
+.navbar-nav > li {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.bg-vid {
+
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh; /* Ensure video covers full height */
+  object-fit: cover;
+  z-index: -1;
+}
+
+.get-wings-now {
+  text-align: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  color: white;
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: bold;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.5em;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.2em;
+  }
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+}
+
+button {
+  padding: 5px 10px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+span {
+  margin: 0 10px;
+  font-size: 1.2rem;
+}
+
+.btn {
+  padding: 10px 15px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border: none;
+  background-color: #424412;
+  color: white;
+  border-radius: 5px;
+  margin: 0 5px;
+}
+
+.btnLogin {
+  padding: 10px 15px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  background-color: #193f63;
+  color: white;
+  border-radius: 10px;
+  margin: 0 12px;
+}
+
+.btn:hover {
+  background-color: #45a049;
+}
+
+.count {
+  font-size: 1rem;
+}
+
+.cart {
+  top: 15px;
+  padding: 10px 15px;
+  cursor: pointer;
+  border: none;
+  color: white;
+  margin: 10 12px;
+}
+
+.datetime-picker {
+  font-family: Arial, sans-serif;
+  width: 290px;
+  margin-left: 0px;
+}
+
+.date-picker {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: #555;
+}
+
+.react-datepicker {
+  font-family: Arial, sans-serif;
+}
+
+.react-datepicker__time-container
+  .react-datepicker__time
+  .react-datepicker__time-box {
+  width: auto;
+}
+
+.react-datepicker__time-container
+  .react-datepicker__time
+  .react-datepicker__time-box
+  ul.react-datepicker__time-list {
+  padding: 8px;
+}
+
+.react-datepicker__time-container
+  .react-datepicker__time
+  .react-datepicker__time-box
+  ul.react-datepicker__time-list
+  li.react-datepicker__time-list-item {
+  padding: 6px 12px;
+}
+
+.react-datepicker__time-container
+  .react-datepicker__time
+  .react-datepicker__time-box
+  ul.react-datepicker__time-list
+  li.react-datepicker__time-list-item:hover {
+  background-color: #c84f4f;
+}
+
+.add-to-cart-btn {
+  background-color: #c2ddef;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #8dec92;
+}
+
+.buy-now-btn {
+  background-color: #ebe762;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+  margin-left: 10px;
+}
+
+.buy-now-btn:hover {
+  background-color: #8dec92;
+}
+
+.badge {
+  padding-left: 9px;
+  padding-right: 9px;
+  -webkit-border-radius: 9px;
+  -moz-border-radius: 9px;
+  border-radius: 9px;
+}
+
+.label-warning[href],
+.badge-warning[href] {
+  background-color: #c67605;
+}
+
+#lblCartCount {
+  font-size: 12px;
+  background: #ff0000;
+  color: #fff;
+  padding: 0 5px;
+  vertical-align: top;
+  margin-left: -10px;
+}
+
+.modal {
+  /* display: none; */
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+}
+
+.modal.is-active {
+  display: block;
+}
+
+.modal-background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #e6e096;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 100%;
+  padding: 20px;
+}
+
+.message {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.modal-card {
+  position: relative;
+  background-color: #fff;
+  margin: 20% auto;
+  max-width: 80%;
+  padding: 20px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.button {
+  margin-left: 10px;
+  font-size: 16px;
+  border-radius: 4px;
+}
+
+.button.is-danger {
+  background-color: #ff3860;
+  color: #ffffff;
+}
+
+.button:hover {
+  opacity: 0.8;
+  /* Add more styling as needed */
+}
+
+@media (max-width: 768px) {
+  .navbar-collapse {
+    background-color: #ffffff; /* White background */
+  }
+  .navbar-nav {
+    background-color: #ffffff; /* White background */
+  }
+  .nav-item {
+    background-color: #ffffff; /* White background */
+  }
+  .nav-link {
+    color: #333; /* Dark text color */
+  }
+}
+
+.dropdown-menu {
+  display: block;
+  position: absolute;
+  top: 80px; /* Adjust based on your navbar height */
+  right: 10px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  padding: 10px;
+  width: 200px; /* Adjust as needed */
+}
+
+.dropdown-item {
+  display: block;
+  padding: 8px 16px;
+  color: #333;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background-color: #f8f9fa;
+}
+
+.profile-pic {
+  border: 2px solid #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
