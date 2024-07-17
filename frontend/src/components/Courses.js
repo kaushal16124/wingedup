@@ -9,7 +9,7 @@ import page7 from '../assets/solo_course/page7.jpg'
 
 
 const Courses = (props) => {
-  const {setProgress} = props;
+  const { setProgress } = props;
   setProgress(0);
   setProgress(20);
   setProgress(30);
@@ -17,7 +17,12 @@ const Courses = (props) => {
   setProgress(100);
   return (
     <>
-      <div className='container my-3' style={{ width: "60%", height: "auto" }}>
+      <div className='container my-3' style={{ width: "70%", height: "auto" }}>
+      <div className="d-grid gap-2 my-2 justify-content-center">
+          <a href="/Course_Structure.pdf" download>
+            <button className="btn btn-success" type="button">Download Course Brochure</button>
+          </a>
+        </div>
         <div id="carouselExampleAutoplaying" className="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
           <div className="carousel-inner">
             <div className="carousel-item active">
@@ -51,9 +56,7 @@ const Courses = (props) => {
             <span className="visually-hidden">Next</span>
           </button>
         </div>
-        <div className="d-grid gap-2 my-2">
-          <button className="btn btn-success" type="button">Download Course Brochure</button>
-        </div>
+        
       </div>
     </>
   )
