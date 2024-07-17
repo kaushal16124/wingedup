@@ -21,8 +21,8 @@ const Footer = () => {
                         <a href="tel:+919459944140"><i className="fas fa-phone-alt"></i> +91-9459944140</a>
                         </p>
                         <p>
-                            <a href="https://maps.app.goo.gl/pgo6KECazPUqp2sV6" target="_blank"><i className="fas fa-map-marker-alt"></i> </a>
-                            WingedUp Paragliding, Bir-Billing</p>
+                            <a href="https://maps.app.goo.gl/pgo6KECazPUqp2sV6" target="_blank"><i className="fas fa-map-marker-alt"></i> WingedUp Paragliding, Bir-Billing </a>
+                            </p>
                     </div>
                     <div className="col-md-3 my-2">
                         <h5><strong>LINKS</strong></h5>
