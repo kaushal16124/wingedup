@@ -1,8 +1,10 @@
 import React from 'react'
-import bgVideo from '../assets/homeBG.mp4'
+import bgVideo from '../assets/BGhome.mp4'
+import bgVideoMobile from '../assets/homeMobBG.mp4'
+import Footer from './Footer';
 
 const Home = (props) => {
-  const {setProgress} = props;
+  const { setProgress } = props;
   setProgress(0);
   setProgress(10);
   setProgress(20);
@@ -11,21 +13,19 @@ const Home = (props) => {
   setProgress(70);
   setProgress(100);
 
-  const handleCallButtonClick = () => {
-    window.location.href = 'tel:+918084350810';
-  };
-
   return (
     <>
       <div>
         <video autoPlay loop muted className="bg-vid" disablePictureInPicture>
-          <source src={bgVideo} type="video/mp4" /> 
+        <source src={bgVideo} type="video/mp4" media="screen and (min-width: 768px)" />
+        <source src={bgVideoMobile} type="video/mp4" media="screen and (max-width: 767px)" />
         </video>
       </div>
-      <div className="get-wings-now" onClick={handleCallButtonClick}>
+      {/* <div className="get-wings-now">
         <h1><strong>Get your wings now!</strong></h1>
         <h1><strong>Call +91 8084350810</strong></h1>
-      </div>
+      </div> */}
+      <Footer />
     </>
   )
 }

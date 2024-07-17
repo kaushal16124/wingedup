@@ -8,7 +8,7 @@ import axios from 'axios';
 import productContext from '../context/products/productContext';
 
 const Cart = (props) => {
-  const {setProgress} = props;
+  const { setProgress } = props;
   setProgress(0);
   setProgress(20);
   setProgress(30);
@@ -84,9 +84,9 @@ const Cart = (props) => {
     const { data: { order } } = await axios.post(`${process.env.REACT_APP_BACKEND_HOST_URI}/api/checkout`, {
       amount,
       cart: cartWithProductNames, // Include the cart in the request body
-    visitorName: user.name,
-    visitorEmail: user.email,
-    visitorContact: "8084350810"
+      visitorName: user.name,
+      visitorEmail: user.email,
+      visitorContact: "8084350810"
     })
 
     const options = {
@@ -185,9 +185,9 @@ const Cart = (props) => {
                 </div>
 
                 <div className="booking-details">
-                <p className="quantity"><strong>Quantity: </strong>{item.count}</p>
-                <p className="total-price"><strong>Item Total: </strong>₹{item.price}</p>
-                <p className="booking-date"><strong>Date of Booking: </strong>{formatDate(item.selectedDate)}</p>
+                  <p className="quantity"><strong>Quantity: </strong>{item.count}</p>
+                  <p className="total-price"><strong>Item Total: </strong>₹{item.price}</p>
+                  <p className="booking-date"><strong>Date of Booking: </strong>{formatDate(item.selectedDate)}</p>
                 </div>
 
               </div>
@@ -196,12 +196,12 @@ const Cart = (props) => {
         </div>
         {cartTotal !== 0 && (
           <div className="checkout-box">
-          <div className="checkout-summary">
-            <h3>Total: ₹{cartTotal}</h3>
-            <button className="btn btn-primary btn-lg" onClick={() => checkoutHandler(cartTotal)}>Proceed to Checkout</button>
+            <div className="checkout-summary">
+              <h3>Total: ₹{cartTotal}</h3>
+              <button className="btn btn-primary btn-lg" onClick={() => checkoutHandler(cartTotal)}>Proceed to Checkout</button>
+            </div>
           </div>
-        </div>
-        
+
         )}
       </>
       //   <>
@@ -223,13 +223,13 @@ const Cart = (props) => {
   const loggedOutRouter = () => {
     return (
       <>
-        <h2 style={{ textAlign: "center" }}>Please login first</h2>
+        {/* <h2 style={{ textAlign: "center" }}>Please login first</h2> */}
         <div className="parent-container">
 
           <div className="content">
             <>
 
-              <img src={emptyCart} alt="Empty Cart" style={{ width: '500px', marginRight: '100px', marginTop: '-200px' }} />
+              <img src={emptyCart} alt="Empty Cart" style={{ width: '350px' }} />
             </>
           </div>
         </div>
