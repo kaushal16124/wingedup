@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react'
 import blogContext from '../context/blogs/blogContext';
 import { Carousel } from 'react-responsive-carousel';
 import ReactPlayer from 'react-player';
+import Footer from './Footer'
 
 const Blogs = (props) => {
   const { setProgress } = props;
@@ -18,7 +19,8 @@ const Blogs = (props) => {
 
  
   return (
-    <div className='container'>
+    <>
+    <div className='container-fluid d-flex flex-column min-vh-100'>
       {blogs.map(blog => (
         <div key={blog._id} className="blog-card" style={{ borderBottom: '5px solid #68ba85', paddingBottom: '20px', paddingTop: '20px' }}>
 
@@ -76,6 +78,8 @@ const Blogs = (props) => {
 
       ))}
     </div>
+    <Footer/>
+    </>
   );
 }
 

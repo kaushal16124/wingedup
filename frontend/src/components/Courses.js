@@ -6,6 +6,7 @@ import page4 from '../assets/solo_course/page4.jpg'
 import page5 from '../assets/solo_course/page5.jpg'
 import page6 from '../assets/solo_course/page6.jpg'
 import page7 from '../assets/solo_course/page7.jpg'
+import Footer from './Footer'
 
 
 const Courses = (props) => {
@@ -17,7 +18,7 @@ const Courses = (props) => {
   setProgress(100);
   return (
     <>
-      <div className='container my-3' style={{ width: "70%", height: "auto" }}>
+      <div className='container-fluid d-flex flex-column min-vh-100 my-3' style={{ width: "70%", height: "auto" }}>
       <div className="d-grid gap-2 my-2 justify-content-center">
           <a href="/Course_Structure.pdf" download>
             <button className="btn btn-success" type="button">Download Course Brochure</button>
@@ -58,6 +59,7 @@ const Courses = (props) => {
         </div>
         
       </div>
+      <Footer/>
     </>
   )
 }

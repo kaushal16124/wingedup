@@ -1,5 +1,5 @@
 .login-container {
-    position: fixed;
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -13,6 +13,19 @@
     font-size: 14px; /* Changed font size */
     opacity: 0; /* Start with opacity 0 */
     animation: fadeIn 0.5s forwards; /* Apply animation */
+    margin: 0 auto; 
+  }
+
+  .login-page-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .login-footer {
+    position: sticky; /* add this */
+  bottom: 0; /* add this */
+  margin-top: auto;
   }
   
   @keyframes fadeIn {

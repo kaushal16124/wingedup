@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import '../components/Login.css'
 import { useNavigate } from 'react-router-dom';
+import Footer from './Footer'
 
 
 const Login = (props) => {
@@ -60,6 +61,8 @@ const Login = (props) => {
     };
 
     return (
+        <>
+        <div className="login-page-container">
         <div className="login-container">
             <h2 className="login-header">Log In</h2>
             <form onSubmit={handleLogin}>
@@ -86,6 +89,9 @@ const Login = (props) => {
             <a className="forgot-password" href="#" onClick={handleForgotPassword}>Forgot password?</a>
             <p className="signup-text">Not registered? <a className="signup-link" href="/signup">Sign Up</a></p>
         </div>
+        </div>
+        <Footer className="login-footer"/>
+        </>
     )
 }
 

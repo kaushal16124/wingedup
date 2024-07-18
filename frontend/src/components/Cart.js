@@ -6,6 +6,7 @@ import './CartPage.css';
 import emptyCart from "../assets/emptyCart.png";
 import axios from 'axios';
 import productContext from '../context/products/productContext';
+import Footer from './Footer'
 
 const Cart = (props) => {
   const { setProgress } = props;
@@ -237,12 +238,15 @@ const Cart = (props) => {
     )
   }
   return (
-    <div>
+    <>
+    <div className='container-fluid d-flex flex-column min-vh-100'>
       {
         isLogged ? loggedInRouter() : loggedOutRouter()
       }
 
     </div>
+    <Footer/>
+    </>
   )
 }
 

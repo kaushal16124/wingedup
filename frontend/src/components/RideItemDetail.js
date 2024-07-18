@@ -7,6 +7,7 @@ import axios from 'axios';
 import { Button } from '@mui/material';
 // import Razorpay from 'razorpay';
 import cartContext from '../context/cart/cartContext';
+import Footer from './Footer';
 
 
 const RideItemDetail = (props) => {
@@ -262,7 +263,7 @@ const RideItemDetail = (props) => {
       </div>
 
 
-      <div className='container mx-2'>
+      <div className='container-fluid d-flex flex-column min-vh-100 mx-2'>
         {/* <ReactPlayer url={location.state.youtubelink} width={250} height={250} /> */}
         <div className="card bg-transparent border-0 my-2">
 
@@ -309,6 +310,7 @@ const RideItemDetail = (props) => {
 
         </div>
       </div>
+      <Footer/>
     </>
   )
 }

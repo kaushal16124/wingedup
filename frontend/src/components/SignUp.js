@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import '../components/SignUp.css'
 import { useNavigate } from 'react-router-dom';
+import Footer from './Footer';
 
 const SignUp = (props) => {
     const {setProgress} = props;
@@ -54,6 +55,8 @@ const SignUp = (props) => {
 
 
     return (
+        <>
+        <div className="signup-page-container">
         <div className="signup-container">
             <h2 className="signup-header">Sign Up</h2>
             <form onSubmit={handleSignup}>
@@ -98,6 +101,9 @@ const SignUp = (props) => {
             
             <p className="login-text">Already have an account? <a className="login-link" href="/login">Log In</a></p>
         </div>
+        </div>
+        <Footer className="signup-footer"/>
+        </>
     )
 }
 

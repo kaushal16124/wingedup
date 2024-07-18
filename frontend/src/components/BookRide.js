@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react'
 import RideTypeCard from './RideTypeCard'
 import rideContext from '../context/rides/rideContext';
 import productContext from '../context/products/productContext';
+import Footer from './Footer';
 
 
 const BookRide = (props) => {
@@ -21,7 +22,8 @@ const BookRide = (props) => {
   },[])
 
   return (
-      <div className="container">
+    <>
+      <div className="container-fluid d-flex flex-column min-vh-100">
       <div className="row mx-3 my-3">
       <h3 style={{fontFamily: 'cursive'}}>Available Rides</h3>
       {products.map((ride)=> {
@@ -29,6 +31,9 @@ const BookRide = (props) => {
       })}
       </div>
       </div>
+      <Footer/>
+      </>
+
 
   )
 }
