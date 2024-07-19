@@ -96,26 +96,31 @@ const ManageMembers = (props) => {
       setUploadSuccess(true);
 
       //console.log('Upload successful', response.data);
-      alert('Image Upload successful')
+      props.showAlert("Image Upload successful", "success");
+      //alert('Image Upload successful')
 
 
       try {
         const isUpdated = await updateMember(member.id, member.ename, member.eage, member.eexp, member.edesc, response.data.url, member.einstaUrl, member.ewhatsAppUrl, member.efacebookUrl)
 
         if (isUpdated) {
-          alert('Member updated!');
+          props.showAlert("Member updated!", "success");
+          //alert('Member updated!');
           setSelectedFile(null);
           setPreviewImage(null);
           refClose.current.click();
-          alert('Updated Successfully!')
+          props.showAlert("Updated Successfully!", "success");
+          //alert('Updated Successfully!')
 
 
         } else {
-          alert('Some error occurred');
+          props.showAlert("Some error occurred", "danger");
+          //alert('Some error occurred');
         }
       } catch (error) {
-        alert('Some error occurred while editing the member');
-        console.error('Error adding member', error);
+        props.showAlert("Some error occurred while editing the member", "danger");
+        //alert('Some error occurred while editing the member');
+        //console.error('Error adding member', error);
       }
     } catch (error) {
       // Handle error
@@ -150,7 +155,8 @@ const ManageMembers = (props) => {
       setUploadSuccess(true);
       setUploadProgress(100);
       //console.log('Upload successful', response.data);
-      alert('Image Upload successful')
+      props.showAlert("Image Upload successful", "success");
+      //alert('Image Upload successful')
 
       // Now you can send productData to your backend to save the product details
       //console.log('Form Data:', userformData);
@@ -169,7 +175,8 @@ const ManageMembers = (props) => {
       try {
         const isAdded = await addMember(memberData.name, memberData.age, memberData.exp, memberData.desc, response.data.url, memberData.instaUrl, memberData.whatsAppUrl, memberData.facebookUrl);
         if (isAdded) {
-          alert('Product live now!');
+          props.showAlert("Member live now!", "success");
+          //alert('Product live now!');
           setPreviewImage(null);
           setSelectedFile(null);
           setFormData({
@@ -182,10 +189,12 @@ const ManageMembers = (props) => {
             facebookUrl: ''
           })
         } else {
-          alert('Some error occurred');
+          props.showAlert("Some error occurred", "danger");
+          //alert('Some error occurred');
         }
       } catch (error) {
-        alert('Some error occurred while adding the member');
+        props.showAlert("Some error occurred while adding the member", "danger");
+        //alert('Some error occurred while adding the member');
         console.error('Error adding member', error);
       }
     } catch (error) {

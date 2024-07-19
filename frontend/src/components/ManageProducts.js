@@ -96,25 +96,30 @@ const ManageProducts = (props) => {
       setUploadSuccess(true);
 
       //console.log('Upload successful', response.data);
-      alert('Image Upload successful')
+      props.showAlert("Image Upload successful", "success");
+      //alert('Image Upload successful')
 
 
       try {
         const isUpdated = await updateProduct(product.id, product.etitle, product.eamount, product.edescription, product.econtent, response.data, product.ecategory)
 
         if (isUpdated) {
-          alert('Product updated!');
+          props.showAlert("Product updated!", "success");
+          //alert('Product updated!');
           setSelectedFile(null);
           setPreviewImage(null);
           refClose.current.click();
-          alert('Updated Successfully!')
+          props.showAlert("Updated Successfully!", "success");
+          //alert('Updated Successfully!')
 
 
         } else {
-          alert('Some error occurred');
+          props.showAlert("Some error occurred", "danger");
+          //alert('Some error occurred');
         }
       } catch (error) {
-        alert('Some error occurred while editing the product');
+        props.showAlert("Some error occurred while editing the member", "danger");
+        //alert('Some error occurred while editing the product');
         console.error('Error adding product', error);
       }
     } catch (error) {
@@ -150,7 +155,8 @@ const ManageProducts = (props) => {
       setUploadSuccess(true);
       setUploadProgress(100);
       //console.log('Upload successful', response.data);
-      alert('Image Upload successful')
+      props.showAlert("Image Upload successful", "success");
+      //alert('Image Upload successful')
 
       // Now you can send productData to your backend to save the product details
       //console.log('Form Data:', userformData);
@@ -168,7 +174,8 @@ const ManageProducts = (props) => {
       try {
         const isAdded = await addProduct(productData.product_id, productData.title, productData.amount, productData.description, productData.content, productData.images, productData.category);
         if (isAdded) {
-          alert('Product live now!');
+          props.showAlert("Product live now!", "success");
+          //alert('Product live now!');
           setPreviewImage(null);
           setSelectedFile(null);
           setFormData({
@@ -180,10 +187,12 @@ const ManageProducts = (props) => {
             category: ''
           })
         } else {
-          alert('Some error occurred');
+          props.showAlert("Some error occurred", "danger");
+          //alert('Some error occurred');
         }
       } catch (error) {
-        alert('Some error occurred while adding the product');
+        props.showAlert("Some error occurred while adding the member", "danger");
+        //alert('Some error occurred while adding the product');
         console.error('Error adding product', error);
       }
     } catch (error) {

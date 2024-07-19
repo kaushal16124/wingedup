@@ -4,7 +4,7 @@ import axios from 'axios';
 import cartContext from '../context/cart/cartContext';
 
 
-const Navbar = () => {
+const Navbar = (props) => {
   const [isLogged, setIsLogged] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
   const [cart, setCart] = useState([]);
@@ -152,14 +152,16 @@ const Navbar = () => {
             json.user.role === 1 ? setIsAdmin(true) : setIsAdmin(false);
             //console.log(json.user);
           } else {
-            alert("Invalid credentials")
+            props.showAlert("Invalid credentials", "danger");
+            //alert("Invalid credentials")
           }
 
 
 
 
         } catch (err) {
-          alert(err.response.data.msg);
+          props.showAlert(err.response.data.msg, "danger");
+          //alert(err.response.data.msg);
         }
       };
       getUser();

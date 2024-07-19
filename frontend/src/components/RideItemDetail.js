@@ -148,12 +148,14 @@ const RideItemDetail = (props) => {
         setPrice(price1);
         //console.log({ user });
       } else {
-        alert("Some error occured while adding!");
+        props.showAlert("Some error occured while adding!", "danger");
+        //alert("Some error occured while adding!");
       }
       setProgress(100);
 
     } else {
-      alert("Please login to access cart functionality!");
+      props.showAlert("Please login to access cart functionality!", "warning");
+      //alert("Please login to access cart functionality!");
       setProgress(80);
       setProgress(100);
     }
@@ -202,14 +204,16 @@ const RideItemDetail = (props) => {
             setCart(json.user.cart);
             //console.log(json.user);
           } else {
-            alert("Invalid credentials")
+            props.showAlert("Invalid credentials", "danger");
+            //alert("Invalid credentials")
           }
 
 
 
 
         } catch (err) {
-          alert(err.response.data.msg);
+          props.showAlert(err.response.data.msg, "danger");
+          //alert(err.response.data.msg);
         }
       };
       getUser();

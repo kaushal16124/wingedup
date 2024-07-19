@@ -16,10 +16,12 @@ const RideTypeAdmin = (props) => {
 
         const isDeleted = deleteProduct(ride._id);
         if (isDeleted) {
-            alert("Deleted Successfully");
+            props.showAlert("Deleted Successfully", "success");
+            //alert("Deleted Successfully");
             setIsModalOpen(false);
         } else {
-            alert("Some error occurred");
+            props.showAlert("Some error occurred", "danger");
+            //alert("Some error occurred");
         }
         setIsModalOpen(false);
         setLoading(false);

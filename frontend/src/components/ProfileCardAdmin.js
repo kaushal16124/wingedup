@@ -29,10 +29,12 @@ const ProfileCard = (props) => {
 
         const isDeleted = deleteMember(member._id);
         if (isDeleted) {
-            alert("Deleted Successfully");
+            props.showAlert("Deleted Successfully", "success");
+            //alert("Deleted Successfully");
             setIsModalOpen(false);
         } else {
-            alert("Some error occurred");
+            props.showAlert("Some error occurred", "danger");
+            //alert("Some error occurred");
         }
         setIsModalOpen(false);
         setLoading(false);
