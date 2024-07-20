@@ -26,6 +26,7 @@ import OrderState from './context/orders/orderState';
 import Orders from './components/Orders';
 import ManageOrders from './components/ManageOrders';
 import  Alert  from './components/Alert';
+import PrivacyPolicy from './components/PrivacyPolicy';
 
 
 
@@ -77,6 +78,7 @@ function App() {
                       <Route exact path="/manageblogs" element={<ManageBlogs setProgress={setProgress} showAlert={showAlert} />} />
                       <Route exact path="/getorders" element={<Orders setProgress={setProgress} showAlert={showAlert} />} />
                       <Route exact path="/manageorders" element={<ManageOrders setProgress={setProgress} showAlert={showAlert} />} />
+                      <Route exact path="/privacypolicy" element={<PrivacyPolicy setProgress={setProgress} showAlert={showAlert} />} />
 
 
                     </Routes>

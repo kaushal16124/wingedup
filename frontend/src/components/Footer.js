@@ -31,6 +31,7 @@ const Footer = () => {
                             <li><a href="/bookaride">Book a Ride</a></li>
                             <li><a href="/courses">Solo Paragliding</a></li>
                             <li><a href="/aboutus">About us</a></li>
+                            <li><a href="/privacypolicy">Privacy Policy</a></li>
                             {/* <li><a href="#">FAQs</a></li>
                             <li><a href="#">Privacy Policy</a></li>
                             <li><a href="#">Contact</a></li> */}
