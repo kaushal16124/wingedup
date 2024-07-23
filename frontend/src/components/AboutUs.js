@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import ProfileCard from './ProfileCard'
 import member1 from '../assets/kaushal.jpeg'
 import member2 from '../assets/pinkuadmin.jpg'
@@ -8,21 +8,23 @@ import './AboutUs.css'
 import image1 from '../assets/ClassicRide.png'
 import image2 from '../assets/Premium.png'
 import image3 from '../assets/XC.png'
+import Spinner from './Spinner'
 
 const AboutUs = (props) => {
   const {setProgress} = props;
   const context = useContext(memberContext);
   const { members, setMembers, getMembers } = context;
+  const [loading,setLoading]=useState(true);
   setProgress(0);
     setProgress(10);
     setProgress(20);
     setProgress(30);
     
   useEffect(() => {
-    getMembers();
-    setMembers(members);
-    setProgress(50);
-    setProgress(100);
+    getMembers().then(() => {
+      setLoading(false);
+      setProgress(100);
+    });
 
   }, [])
   return (
@@ -67,7 +69,7 @@ const AboutUs = (props) => {
     <div className='container-fluid d-flex flex-column min-vh-100 my-3'>
       <div className="row mx-3">
         <h3 style={{ fontFamily: 'cursive' }}>Team WingedUp</h3>
-        {members.map((member) => {
+        {loading ? <Spinner /> :members.map((member) => {
           return <ProfileCard member={member} />
         })}
       </div>
