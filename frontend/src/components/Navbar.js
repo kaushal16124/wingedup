@@ -167,16 +167,35 @@ const Navbar = (props) => {
       getUser();
     }
   }, [localStorage.getItem('token')]);
+
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+const toggleMenu = () => {
+  setIsMenuOpen(!isMenuOpen);
+};
+
+useEffect(() => {
+  const navbarToggler = document.querySelector('.navbar-toggler');
+  navbarToggler.addEventListener('click', toggleMenu);
+
+  return () => {
+    navbarToggler.removeEventListener('click', toggleMenu);
+  };
+}, []);
+
+
   return (
     <nav className="navbar fixed-top navbar-collapse navbar-expand-lg navbar-light bg-warning" style={{ height: "100px", fontSize: "22px", fontFamily: "inherit" }}>
-      <div className="container-fluid">
+      <div className="container-fluid  d-flex align-items-center justify-content-between">
+      <div className="d-flex align-items-center">
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
         <div className="navbar-header d-flex align-items-center">
           <img src={logo} alt="WingedUp" width="60" height="60" />
           <a className="navbar-brand" href="/" style={{ fontSize: "22px" }}>WingedUp</a>
         </div>
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
-        </button>
+        </div>
         <div className="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
           <ul className="navbar-nav">
             {isAdmin ? adminRouter() : userRouter()}

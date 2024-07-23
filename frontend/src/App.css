@@ -38,6 +38,7 @@
 }
 
 .navbar {
+  
   z-index: 100;
 }
 
@@ -352,3 +353,69 @@ span {
   border: 2px solid #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
+.navbar-toggler {
+  margin-right: 1px; /* Adjust as needed for spacing */
+  
+  padding: 0.05rem 0.05rem; /* Smaller padding */
+  font-size: 0.175rem; /* Smaller font size */
+}
+
+.navbar-header {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-header img {
+  margin-left: 0px; /* Adjust if necessary for spacing between icon and text */
+}
+
+.navbar-header .navbar-brand {
+  margin-left: 2px; /* Space between the logo and text */
+}
+
+@media (max-width: 768px) {
+.collapse.navbar-collapse {
+ 
+  opacity: 1;
+  display: none;
+  border-radius: 10px; /* Add rounded corners */
+  
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  padding: 5px;
+}
+
+.collapse.navbar-collapse.show {
+  
+  opacity: 0.9;
+  display: block;
+  border-radius: 10px; /* Maintain rounded corners when expanded */
+}
+
+.navbar-nav .nav-item {
+  position: relative;
+  border-bottom: 1px solid #ccc; /* Add a border to each menu item */
+}
+
+.navbar-nav .nav-item:last-child {
+  border-bottom: none; /* Remove the border from the last menu item */
+} 
+
+/* Reduce font size for navbar items */
+.navbar-nav .nav-item .nav-link {
+  font-size: 16px; /* Adjust to your preferred size */
+}
+
+/* Reduce font size for the brand name */
+.navbar-brand {
+  font-size: 16px; /* Adjust to your preferred size */
+}
+
+/* Reduce font size for the dropdown items */
+.dropdown-menu .dropdown-item {
+  font-size: 14px; /* Adjust to your preferred size */
+}
+}
+
+
+
+
