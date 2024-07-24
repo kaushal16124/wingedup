@@ -185,21 +185,25 @@ useEffect(() => {
 
 
   return (
-    <nav className="navbar fixed-top navbar-collapse navbar-expand-lg navbar-light bg-warning" style={{ height: "100px", fontSize: "22px", fontFamily: "inherit" }}>
+    <nav className="navbar fixed-top navbar-collapse navbar-expand-lg navbar-light" style={{ height: "80px", fontSize: "20px", fontFamily: "inherit" }}>
       <div className="container-fluid  d-flex align-items-center justify-content-between">
       <div className="d-flex align-items-center">
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="navbar-header d-flex align-items-center">
-          <img src={logo} alt="WingedUp" width="60" height="60" />
-          <a className="navbar-brand" href="/" style={{ fontSize: "22px" }}>WingedUp</a>
+          <img src={logo} alt="WingedUp" width="50" height="50" />
+          <a className="navbar-brand" href="/" style={{ fontSize: "20px" }}>WingedUp</a>
         </div>
         </div>
         <div className="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+        <div className="centered-menu-container">
+        <div className="centered-menu">
           <ul className="navbar-nav">
             {isAdmin ? adminRouter() : userRouter()}
           </ul>
+          </div>
+          </div>
           <div className="d-flex align-items-center">
             <a href="/cart" style={{ position: 'relative', marginRight: '10px' }}>
               <i className="fa-solid fa-cart-plus cart fa-xl" style={{ color: "#9bba0a" }}></i>

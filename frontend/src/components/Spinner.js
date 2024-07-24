@@ -5,7 +5,7 @@ const Spinner = ()=> {
  
     return (
       <div className="text-center" >
-        <img src={loading} style={{width:"300px", height:"300px"}} alt="loading"></img>
+        <img src={loading} style={{width:"150px", height:"150px"}} alt="loading"></img>
       </div>
     )
   
