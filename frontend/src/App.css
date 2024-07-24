@@ -38,7 +38,7 @@
 }
 
 .navbar {
-  background-color: #e6d1d100;
+  /* background-color: #e6d1d100; */
   z-index: 1;
 }
 
@@ -111,15 +111,29 @@ span {
 }
 
 .btnLogin {
-  padding: 10px 15px;
-  font-size: 1rem;
+  padding: 10px 18px;
+  font-size: 1.1rem;
   cursor: pointer;
   border: none;
-  background-color: #193f63;
-  color: white;
-  border-radius: 10px;
-  margin: 0 12px;
+  background-color: #34a853eb; /* Bright green */
+  color: #FFFFFF; /* White */
+  border-radius: 20px;
+  margin: 0 8px;
+  transition: background-color 0.2s ease-in-out;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
 }
+
+.btnLogin:hover {
+  background-color: #2E865F; /* Darker green */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.btnLogin:active {
+  background-color: #2E865F; /* Darker green */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transform: scale(0.95);
+}
+
 
 .btn:hover {
   background-color: #45a049;
@@ -428,7 +442,7 @@ span {
 .centered-menu {
   background-color: rgba(255, 255, 255, 0.625); /* or any color you prefer */
   border-radius: 25px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 20px 20px 18px rgba(0, 0, 0, 0.1);
   padding: 8px 10px;
   margin: 0 auto;
 }
@@ -465,6 +479,12 @@ span {
 }
 
 }
+/* 
+.navbar-transparent {
+  background-color: transparent !important;
+  border: none;
+} */
+
 
 
 

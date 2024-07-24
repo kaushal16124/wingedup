@@ -119,7 +119,7 @@ const Navbar = (props) => {
   const loggedOutRouter = () => {
     return (
       <>
-        <a className="btnLogin btn-outline-success" href="/login" style={{ textDecoration: 'none' }}>Login</a>
+        <a className="btnLogin" href="/login" style={{ textDecoration: 'none' }}>Login</a>
       </>
     )
   }
@@ -170,43 +170,43 @@ const Navbar = (props) => {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-const toggleMenu = () => {
-  setIsMenuOpen(!isMenuOpen);
-};
-
-useEffect(() => {
-  const navbarToggler = document.querySelector('.navbar-toggler');
-  navbarToggler.addEventListener('click', toggleMenu);
-
-  return () => {
-    navbarToggler.removeEventListener('click', toggleMenu);
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
-}, []);
+
+  useEffect(() => {
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    navbarToggler.addEventListener('click', toggleMenu);
+
+    return () => {
+      navbarToggler.removeEventListener('click', toggleMenu);
+    };
+  }, []);
 
 
   return (
-    <nav className="navbar fixed-top navbar-collapse navbar-expand-lg navbar-light" style={{ height: "80px", fontSize: "20px", fontFamily: "inherit" }}>
+    <nav className="navbar fixed-top navbar-collapse navbar-expand-lg navbar-light navbar-transparent" style={{ height: "80px", fontSize: "20px", fontFamily: "inherit" }}>
       <div className="container-fluid  d-flex align-items-center justify-content-between">
-      <div className="d-flex align-items-center">
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="navbar-header d-flex align-items-center">
-          <img src={logo} alt="WingedUp" width="50" height="50" />
-          <a className="navbar-brand" href="/" style={{ fontSize: "20px" }}>WingedUp</a>
-        </div>
+        <div className="d-flex align-items-center">
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="navbar-header d-flex align-items-center">
+            <img src={logo} alt="WingedUp" width="50" height="50" />
+            <a className="navbar-brand" href="/" style={{ fontSize: "20px" }}>WingedUp</a>
+          </div>
         </div>
         <div className="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
-        <div className="centered-menu-container">
-        <div className="centered-menu">
-          <ul className="navbar-nav">
-            {isAdmin ? adminRouter() : userRouter()}
-          </ul>
-          </div>
+          <div className="centered-menu-container">
+            <div className="centered-menu">
+              <ul className="navbar-nav">
+                {isAdmin ? adminRouter() : userRouter()}
+              </ul>
+            </div>
           </div>
           <div className="d-flex align-items-center">
             <a href="/cart" style={{ position: 'relative', marginRight: '10px' }}>
-              <i className="fa-solid fa-cart-plus cart fa-xl" style={{ color: "#9bba0a" }}></i>
+              <i className="fa-solid fa-cart-plus cart fa-xl" style={{ color: "#008080" }}></i>
               <span className="badge badge-warning" id="lblCartCount" style={{ position: 'absolute', top: '-8px', right: '-8px' }}>{cartLength}</span>
             </a>
             {isLogged ? loggedInRouter() : loggedOutRouter()}
