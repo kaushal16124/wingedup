@@ -37,7 +37,7 @@ router.post('/upload',auth,authAdmin, (req,res)=> {
         
 
         const file = req.files.file;
-        if(file.size > 1024*1024){
+        if(file.size > 7*1024*1024){
             removeTmp(file.tempFilePath)
             return res.status(400).json({msg:"Size too large"})
         } 
