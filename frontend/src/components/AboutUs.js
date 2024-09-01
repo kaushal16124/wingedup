@@ -5,9 +5,10 @@ import member2 from '../assets/pinkuadmin.jpg'
 import memberContext from '../context/members/memberContext';
 import Footer from './Footer'
 import './AboutUs.css'
-import image1 from '../assets/ClassicRide.png'
-import image2 from '../assets/Premium.png'
-import image3 from '../assets/XC.png'
+import image1 from '../assets/image1.jpg'
+import image2 from '../assets/image2.jpg'
+import image3 from '../assets/image3.jpg'
+import image4 from '../assets/ClassicRide.png'
 import Spinner from './Spinner'
 
 const AboutUs = (props) => {
@@ -54,6 +55,7 @@ const AboutUs = (props) => {
               <img src={image3}  alt="Life at WingedUp" />
               </div>
             </div>
+            
           </div>
           <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
             <span className="carousel-control-prev-icon" aria-hidden="true"></span>
