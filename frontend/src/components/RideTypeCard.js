@@ -13,8 +13,8 @@ const RideTypeCard = (props) => {
     }
     return (
         <div className="col-md-4 my-2">
-            <div className="card" style={{height : "600px"}}>
-                <img src={ride.images.url} className="card-img-top" alt="..." />
+            <div className="card" style={{height : "700px"}}>
+                <img src={ride.images.url} className="card-img-top" alt="..." style={{ height: "300px", objectFit: "cover", width: "100%" }}/>
                 <div className="card-body">
                     <h5 className="card-title"><strong>{ride.title}</strong></h5>
                     <p className="card-text">{ride.description}</p>
