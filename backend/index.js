@@ -26,9 +26,11 @@ const app = express()
 
 
 
-app.use(cors());
 app.use(cors({
-  origin: '*'
+  origin: 'https://wingedup.in', // Allow requests only from this domain
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allow specific HTTP methods
+  allowedHeaders: ['Content-Type', 'Authorization'], // Allow these headers
+  credentials: true // Allow credentials (if necessary, e.g., cookies)
 }));
 
 export const instance = new Razorpay({
