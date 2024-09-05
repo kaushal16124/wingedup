@@ -116,7 +116,7 @@ export const paymentVerification = async (req, res) => {
     }
 
     // res.redirect(`http://localhost:3000/paymentsuccess?reference=${razorpay_payment_id}`);
-    res.redirect(`https://wingedup.vercel.app/paymentsuccess?reference=${razorpay_order_id}`);
+    res.redirect(`https://wingedup.in/paymentsuccess?reference=${razorpay_order_id}`);
 
   } else {
     res.status(400).json({
