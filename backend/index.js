@@ -24,19 +24,18 @@ connectDB();
 
 const app = express()
 
+
+
+app.use(cors());
+app.use(cors({
+  origin: '*'
+}));
+
 export const instance = new Razorpay({
   key_id: process.env.RAZORPAY_API_KEY,
   key_secret: process.env.RAZORPAY_APT_SECRET,
 });
 
-
-
-app.use(cors());
-app.use(cors({
-  origin: 'https://wingedup.in',
-  methods: 'GET,POST,PUT,DELETE',
-  allowedHeaders: 'Content-Type,Authorization'
-}));
 
 app.use(express.json());
 app.use(cookieParser());
