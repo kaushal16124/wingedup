@@ -32,6 +32,9 @@ export const instance = new Razorpay({
 
 
 app.use(cors());
+app.use(cors({
+  origin: 'https://wingedup.in'
+}));
 app.use(express.json());
 app.use(cookieParser());
 app.use(fileUpload({
