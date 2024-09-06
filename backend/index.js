@@ -27,7 +27,7 @@ const app = express()
 
 
 app.use(cors({
-  origin: 'https://wingedup.in' // Allow requests only from this domain
+  origin: '*' // Allow requests only from this domain
 }));
 
 export const instance = new Razorpay({
