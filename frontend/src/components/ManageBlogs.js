@@ -100,7 +100,7 @@ const ManageBlogs = (props) => {
       </div>
       <div className="image-upload-container">
         <label>
-          Upload Image: 
+          Upload Image :  
           <input
             type="file"
             accept="image/*"

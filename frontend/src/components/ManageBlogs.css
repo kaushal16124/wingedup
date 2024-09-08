@@ -28,12 +28,12 @@
     margin-bottom: 40px; /* More space below the editor */
   }
   
-  .image-upload-container {
+  .image-upload-container1 {
     margin-bottom: 40px; /* Increased margin for more spacing */
     display: flex;
     align-items: center;
     justify-content: center; /* Center align content horizontally */
-    gap: 15px; /* More gap between label and input */
+    gap: 35px; /* More gap between label and input */
   }
   
   .image-upload-container label {
@@ -83,10 +83,10 @@
     background-color: #4CAF50; /* Main color */
     color: #fff;
     border: none;
-    border-radius: 8px; /* More rounded corners */
+    border-radius: 20px; /* More rounded corners */
     cursor: pointer;
-    font-size: 1.1rem; /* Larger font size for readability */
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition for hover effect */
+    font-size: 1.2rem; /* Larger font size for readability */
+    transition: background-color 0.5s ease, transform 0.5s ease; /* Smooth transition for hover effect */
   }
   
   .submit-button:hover {
