@@ -1,103 +1,122 @@
-import React, { useMemo, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import JoditEditor from 'jodit-react';
 import axios from 'axios';
+import './ManageBlogs.css'
 
 const ManageBlogs = (props) => {
-  //const host = "http://localhost:4001"
   const host = process.env.REACT_APP_BACKEND_HOST_URI;
   const editorRef = useRef(null);
-  const [initialHtmlString, setInitialHtmlString] = useState(''); 
-  const [editorData, setEditorData] = useState(''); 
+  const [initialHtmlString, setInitialHtmlString] = useState('');
+  const [editorData, setEditorData] = useState('');
+  const [token, setToken] = useState(localStorage.getItem('token'));
+  const [config, setConfig] = useState({});
 
-  const options = ['bold', 'italic', '|', 'ul', 'ol', '|', 'image', '|', 'font', 'fontsize', '|', 'outdent', 'indent', 'align', '|', 'hr', '|', 'fullsize', 'brush', '|', 'table', 'link', '|', 'undo', 'redo'];
+  // Get token from localStorage
+  useEffect(() => {
+    const storedToken = localStorage.getItem('token');
+    if (storedToken) {
+      setToken(storedToken);
+      console.log('Stored token:', storedToken);
+    } else {
+      console.error('No token found in localStorage.');
+    }
+  }, []);
 
-  const config = useMemo(() => ({
-    readonly: false,
-    placeholder: '',
-    defaultActionOnPaste: 'insert_as_html',
-    defaultLineHeight: 1.5,
-    enter: 'div',
-    buttons: options,
-    buttonsMD: options,
-    buttonsSM: options,
-    buttonsXS: options,
-    statusbar: false,
-    sizeLG: 900,
-    sizeMD: 700,
-    sizeSM: 400,
-    toolbarAdaptive: false,
-    uploader: {
-      url: `${host}/api/upload`, // Your backend image upload URL
-      format: 'json',
-      process: async (files) => {
-        const formData = new FormData();
-        formData.append('file', files[0]); // Handling single image
-        
-        console.log('Files:', files);
-        //console.log("hello")
-        // Sending image to your backend (Cloudinary upload)
-        const response = await axios.post(`${host}/api/upload`, formData, {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-            Authorization: localStorage.getItem('token')
-          }
+  // Set editor configuration (without uploader)
+  useEffect(() => {
+    if (token) {
+      setConfig({
+        readonly: false,
+        placeholder: '',
+        defaultActionOnPaste: 'insert_as_html',
+        defaultLineHeight: 1.5,
+        enter: 'div',
+        buttons: [
+          'bold', 'italic', '|', 'ul', 'ol', '|',
+          'font', 'fontsize', '|', 'outdent', 'indent', 'align', '|',
+          'hr', '|', 'fullsize', 'brush', '|', 'table', 'link', '|',
+          'undo', 'redo'
+        ]
+      });
+    }
+  }, [token]);
 
-        });
-    
-        //const data = await response.json();
-    
-        // Handling the response
-        if (response && response.url) {
-          // Inserting the uploaded image URL into the editor
-          editorRef.current.s.insertImage(response.url);
-    
-          // Return an object with a messages property on success
-          return {
-            messages: [
-              {
-                type: 'success',
-                text: 'Image uploaded successfully',
-              },
-            ],
-          };
-        } else {
-          // Return an object with a messages property on error
-          return {
-            messages: [
-              {
-                type: 'error',
-                text: 'Image upload failed',
-              },
-            ],
-          };
+  // Handle image upload
+  const handleImageUpload = async (event) => {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    const formData = new FormData();
+    formData.append('file', file); // Single image
+
+    try {
+      // Send image to backend (API call)
+      const response = await axios.post(`${host}/api/upload`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+          Authorization: token, // Correct format
         }
-      },
-      error: (e) => {
-        console.error('Image upload failed:', e);
-      },
-    },
-  }), []);
+      });
+
+      if (response && response.data && response.data.url) {
+        // Access editor instance directly from ref
+        const editor = editorRef.current;
+        if (editor) {
+          // Insert image URL into editor content
+          console.log('Editor instance available:', editor);
+          editor.selection.insertImage(response.data.url);
+
+          // Force update editorData after image insertion
+          const updatedContent = editor.getEditorValue();
+          console.log('Updated content:', updatedContent);
+          setEditorData(updatedContent);
+        } else {
+          console.error('Editor instance is not available.');
+        }
+      } else {
+        console.error('Image upload failed.');
+      }
+    } catch (error) {
+      console.error('Error uploading image:', error);
+    }
+  };
 
   const setValue = (htmlString) => {
     setEditorData(htmlString);
   };
 
   return (
-    <div>
-      <h1>Editor Page</h1>
-      <JoditEditor
-        ref={editorRef}
-        value={initialHtmlString || ''}
-        config={config}
-        onChange={(htmlString) => setValue(htmlString)}
-      />
-      <div>
+    <div className="container blog-post-page">
+      <h1>Post Blogs</h1>
+      <div className="editor-container">
+        <JoditEditor
+          ref={(editorInstance) => {
+            editorRef.current = editorInstance;
+          }}
+          value={initialHtmlString || ''}
+          config={config}
+          onChange={setValue}
+        />
+      </div>
+      <div className="image-upload-container">
+        <label>
+          Upload Image: 
+          <input
+            type="file"
+            accept="image/*"
+            onChange={handleImageUpload}
+          />
+        </label>
+      </div>
+      <div className="editor-output-container">
         <h2>Editor Output</h2>
         <div dangerouslySetInnerHTML={{ __html: editorData }} />
       </div>
-      <button onClick={() => { console.log(editorData);}}>Submit</button>
+      <div className="submit-button-container">
+        <button className="submit-button" onClick={() => console.log(editorData)}>Make this blog LIVE</button>
+      </div>
     </div>
   );
-}
+};
 
-export default ManageBlogs
+export default ManageBlogs;
